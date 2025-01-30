@@ -13,6 +13,7 @@ This is a **DevSecOps project** that demonstrates how to integrate **SonarQube**
 ---
 
 ## Project Structure
+<pre>
 ├── src/
 │ └── main/
 │ └── java/
@@ -30,7 +31,7 @@ This is a **DevSecOps project** that demonstrates how to integrate **SonarQube**
 ├── pom.xml
 ├── Dockerfile
 └── README.md
-
+</pre>
 
 ---
 
