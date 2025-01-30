@@ -14,20 +14,22 @@ This is a **DevSecOps project** that demonstrates how to integrate **SonarQube**
 
 ## Project Structure
 <pre>
+devsecops-java-project/
+│
 ├── src/
-│ └── main/
-│ └── java/
-│ └── com/
-│ └── example/
-│ └── App.java
+│   └── main/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── App.java
 ├── test/
-│ └── java/
-│ └── com/
-│ └── example/
-│ └── AppTest.java
+│   └── java/
+│       └── com/
+│           └── example/
+│               └── AppTest.java
 ├── .github/
-│ └── workflows/
-│ └── devsecops-pipeline.yml
+│   └── workflows/
+│       └── devsecops-pipeline.yml
 ├── pom.xml
 ├── Dockerfile
 └── README.md
