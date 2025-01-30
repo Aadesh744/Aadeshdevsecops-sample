@@ -59,7 +59,7 @@ jobs:
       run: trivy image devsecops-java-app
 
     - name: Archive Trivy Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: trivy-report
         path: trivy-image-report.txt
