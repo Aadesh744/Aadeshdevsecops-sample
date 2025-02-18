@@ -165,9 +165,25 @@ jobs:
         # Fetch open issues from SonarCloud API and save them to a JSON file
         curl -u ${{ secrets.SONAR_TOKEN }} "https://sonarcloud.io/api/issues/search?componentKeys=naveen-sriramulu_devsecops-sample&statuses=OPEN" -o sonar-reports/open-issues.json
 
-
-    - name: Upload Open Issues HTML Report as Artifact
+    - name: Upload Sonar Open Issues as Artifact
       uses: actions/upload-artifact@v4
       with:
         name: sonar-open-issues
-        path: sonar-reports/open-issues.json
+        path: sonar-reports/open-issues.jso
+    
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, unit-test, owasp-dependency-check, trivy-scan, sonar-scan]  # Make sure all jobs are completed before deploy
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Production
+      run: |
+        exit 1
+        # echo "Deploying the application to production server..."
+        # Example deployment command; replace with actual deployment commands
+        # scp target/*.jar user@production-server:/path/to/deploy/
+        # ssh user@production-server "sudo systemctl restart app"
+        # Note: Make sure to replace with your actual deployment pipeline.
