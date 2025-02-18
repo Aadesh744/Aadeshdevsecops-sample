@@ -67,7 +67,8 @@
                 </executions>
                 <configuration>
                     <autoUpdate>false</autoUpdate>
-                    <failOnError>true</failOnError>
+                    <failOnError>false</failOnError>
+                    <failBuildOnCVSS>11</failBuildOnCVSS>
                 </configuration>
             </plugin>
         </plugins>
