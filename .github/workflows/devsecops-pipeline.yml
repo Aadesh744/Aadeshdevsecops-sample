@@ -23,7 +23,15 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-
+        
+    - name: Cache Maven
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+      
     - name: Build with Maven
       run: mvn clean install
 
@@ -49,7 +57,7 @@ jobs:
         sudo apt-get install -y trivy
 
     - name: Scan Docker image with Trivy
-      run: trivy image  -o trivy-report.html devsecops-java-app
+      run: trivy image  -f table -o trivy-report.html devsecops-java-app
 
     - name: Archive Trivy Report
       uses: actions/upload-artifact@v4
