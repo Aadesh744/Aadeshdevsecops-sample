@@ -40,6 +40,10 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                  <autoUpdate>false</autoUpdate>
+                  <failBuildOnCVSS>0</failBuildOnCVSS>
+                </configuration>
             </plugin>
         </plugins>
     </build>
