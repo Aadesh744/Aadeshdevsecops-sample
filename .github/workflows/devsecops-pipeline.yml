@@ -124,13 +124,13 @@ jobs:
         sudo apt-get install -y trivy
 
     - name: Scan Docker image with Trivy
-      run: trivy image -f table -o trivy-report.html devsecops-java-app
+      run: trivy image -o trivy-report.txt devsecops-java-app
 
     - name: Archive Trivy Report
       uses: actions/upload-artifact@v4
       with:
         name: trivy-report
-        path: trivy-report.html
+        path: trivy-report.txt
 
   sonar-scan:
     runs-on: ubuntu-latest
