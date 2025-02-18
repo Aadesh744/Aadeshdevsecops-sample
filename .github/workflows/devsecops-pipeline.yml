@@ -163,7 +163,7 @@ jobs:
         mkdir -p sonar-reports
 
         # Fetch open issues from SonarCloud API and save them to a JSON file
-        curl -u ${{ secrets.SONAR_TOKEN }} "https://sonarcloud.io/api/issues/search?componentKeys=naveen-sriramulu_devsecops-sample&statuses=OPEN" -o sonar-reports/open-issues.json
+        curl -u c6da0c254bcf9690cedb8fa6df3f5282cbaed02e "https://sonarcloud.io/api/issues/search?componentKeys=naveen-sriramulu_devsecops-sample&statuses=OPEN" -o sonar-reports/open-issues.json
 
     - name: Upload Sonar Open Issues as Artifact
       uses: actions/upload-artifact@v4
