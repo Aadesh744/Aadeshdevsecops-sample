@@ -94,8 +94,8 @@ jobs:
     - name: Archive OWASP Dependency-Check Report
       uses: actions/upload-artifact@v4
       with:
-        name: dependency-check-report
-        path: target/dependency-check-report.html
+        name: owasp-dependency-check-report
+        path: target/owasp-dependency-check-report.html
 
   trivy-scan:
     runs-on: ubuntu-latest
@@ -124,13 +124,13 @@ jobs:
         sudo apt-get install -y trivy
 
     - name: Scan Docker image with Trivy
-      run: trivy image -o trivy-report.txt devsecops-java-app
+      run: trivy image -o trivy-scan-report.txt devsecops-java-app
 
     - name: Archive Trivy Report
       uses: actions/upload-artifact@v4
       with:
-        name: trivy-report
-        path: trivy-report.txt
+        name: trivy-scan-report
+        path: trivy-scan-report.txt
 
   sonar-scan:
     runs-on: ubuntu-latest
@@ -150,10 +150,10 @@ jobs:
       uses: SonarSource/sonarqube-scan-action@v1
       with:
         args: >
-          -Dsonar.projectKey=devsecops-java-project
-          -Dsonar.projectName=DevSecOps Java Project
+          -Dsonar.projectKey=devsecops-sample
+          -Dsonar.projectName=devsecops-sample
           -Dsonar.host.url=https://sonarcloud.io/
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.login=c6da0c254bcf9690cedb8fa6df3f5282cbaed02e
       env:
         SONAR_HOST_URL: https://sonarcloud.io/
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_TOKEN: c6da0c254bcf9690cedb8fa6df3f5282cbaed02e
