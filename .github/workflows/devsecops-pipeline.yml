@@ -147,7 +147,7 @@ jobs:
         path: target/
 
     - name: Run SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v1
+      uses: SonarSource/sonarqube-scan-action@v2
       with:
         args: >
           -Dsonar.projectKey=naveen-sriramulu_devsecops-sample
