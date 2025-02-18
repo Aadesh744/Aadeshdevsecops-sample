@@ -154,6 +154,7 @@ jobs:
           -Dsonar.projectName=devsecops-sample
           -Dsonar.host.url=https://sonarcloud.io/
           -Dsonar.login=c6da0c254bcf9690cedb8fa6df3f5282cbaed02e
+          -Dsonar.organization=naveen-sriramulu
       env:
         SONAR_HOST_URL: https://sonarcloud.io/
         SONAR_TOKEN: c6da0c254bcf9690cedb8fa6df3f5282cbaed02e
