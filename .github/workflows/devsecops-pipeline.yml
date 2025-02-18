@@ -169,7 +169,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: sonar-open-issues
-        path: sonar-reports/open-issues.jso
+        path: sonar-reports/open-issues.json
     
   deploy:
     runs-on: ubuntu-latest
