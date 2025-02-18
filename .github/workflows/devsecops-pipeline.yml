@@ -170,15 +170,19 @@ jobs:
         # Create an HTML file to store the open issues
         echo "<html><body><h1>Open Issues Report</h1>" > sonar-reports/open-issues.html
         echo "<table border='1'><tr><th>Key</th><th>Severity</th><th>Message</th><th>File</th><th>Line</th></tr>" >> sonar-reports/open-issues.html
-
+    
+        # Debug: Print the raw JSON issues
+        jq -r '.issues[] | .key + " " + .severity + " " + .message + " " + .component + " " + (.line | tostring)' sonar-reports/open-issues.json
+    
         # Read the open issues JSON and format it into an HTML table
         jq -r '.issues[] | "<tr><td>" + .key + "</td><td>" + .severity + "</td><td>" + .message + "</td><td>" + .component + "</td><td>" + (.line | tostring) + "</td></tr>"' sonar-reports/open-issues.json >> sonar-reports/open-issues.html
-
+    
         # Close the HTML tags
-        echo "</table></body></html>" >> sonar-reports/open-issues.html
+        echo "</table></body></html>" >> sonar-reports/sonar-open-issues.html
+
 
     - name: Upload Open Issues HTML Report as Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: sonar-open-issues-html
-        path: sonar-reports/open-issues.html
+        name: sonar-open-issues
+        path: sonar-reports/sonar-open-issues.html
