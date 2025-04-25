@@ -1,6 +1,6 @@
 package com.example;
 
-public class SampleClass {
+public class SonarWarn1 {
 
     // This method has a code smell: it is too complex
     public void complexMethod() {
